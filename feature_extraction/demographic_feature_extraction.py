@@ -9,7 +9,7 @@ screen_name_to_year_of_birth = defaultdict(int)
 screen_name_to_education = defaultdict(int)
 
 ## Get ResponseID - UserID matching
-with open('survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.csv', 'r') as csvfile :	
+with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.csv', 'r') as csvfile :	
     lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
     
     for line in lines :
@@ -19,7 +19,7 @@ with open('survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.cs
 # print responseUserID
 
 # Get Survey Data, only get the ID that has a matching 
-with open('survey_post_EarthSciences_ResGeo202_Spring2015_response.csv', 'r') as csvfile :	
+with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_response.csv', 'r') as csvfile :	
     lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
     for line in lines :
         if (line[2] == "Q1.1" and line[4] != ''):
@@ -27,7 +27,7 @@ with open('survey_post_EarthSciences_ResGeo202_Spring2015_response.csv', 'r') as
                 userScore[responseUserID[line[1]]] = line[4]
 
 # print userScore
-with open('EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile :
+with open('../../data/EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile :
 	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
 	for line in lines :
 		if line[0] in userScore : 
@@ -75,31 +75,22 @@ with open('EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile
 			if line[0] not in screen_name_to_education and line[0] != "\\N":
 				screen_name_to_education[line[0]] = 0
 			
-with open('EarthSciences_ResGeo202_Spring2015_Forum.csv', 'r') as csvfile :
-	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
-	for line in lines :
-		if len(line) > 2 and line[1] in userScore:
-			# print line[1], line[2]
-			if line[2] == "CommentThread":
-				screen_name_to_post_count[line[1]] += 1
-			if line[2] == "Comment":
-				screen_name_to_comment_count[line[1]] += 1
 
 
 # print len(screen_name_to_gender)
 # print len(screen_name_to_year_of_birth)
 # print len(screen_name_to_education)
 
-X = np.array([0, 0, 0, 0, 0])
+X = np.array([0, 0, 0])
 # Y = np.array([0])
 Y = [0]
 
 for id in userScore:
-	newrow = [screen_name_to_gender[id], screen_name_to_year_of_birth[id], screen_name_to_education[id], screen_name_to_gender[id], screen_name_to_comment_count[id]]
+	newrow = [screen_name_to_gender[id], screen_name_to_year_of_birth[id], screen_name_to_education[id]]
 	X = np.vstack([X, newrow])
 	# Y = np.vstack([Y, [userScore[id]]])
 	Y.append(userScore[id])
 
-print X.shape
-print Y.shape
+print X
+print Y
 

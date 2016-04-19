@@ -9,7 +9,7 @@ screen_name_to_comment_count = defaultdict(int)
 
 
 ## Get ResponseID - UserID matching
-with open('survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.csv', 'r') as csvfile :	
+with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.csv', 'r') as csvfile :	
     lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
     
     for line in lines :
@@ -19,7 +19,7 @@ with open('survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.cs
 # print responseUserID
 
 # Get Survey Data, only get the ID that has a matching 
-with open('survey_post_EarthSciences_ResGeo202_Spring2015_response.csv', 'r') as csvfile :	
+with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_response.csv', 'r') as csvfile :	
     lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
     for line in lines :
         if (line[2] == "Q1.1" and line[4] != ''):
@@ -28,7 +28,7 @@ with open('survey_post_EarthSciences_ResGeo202_Spring2015_response.csv', 'r') as
 
 # print userScore
 
-with open('EarthSciences_ResGeo202_Spring2015_Forum.csv', 'r') as csvfile :
+with open('../../data/EarthSciences_ResGeo202_Spring2015_Forum.csv', 'r') as csvfile :
 	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
 	for line in lines :
 		if len(line) > 2 and line[1] in userScore:

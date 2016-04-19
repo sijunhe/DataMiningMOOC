@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}
+
+\bibitem{Facebook}
+J.~Cheng, L.~Adamic, P.~Dow, J.Kleinberg, and J.Leskovec.
+\newblock Can cascades be predicted?
+\newblock {\em Proceedings of the 23rd international conference on World wide
+  Web}, 2014.
+
+\bibitem{twitter}
+Q.~Zhao, M.~Erdogdu, H.~He, A.~Rajaraman, and J.Leskovec.
+\newblock Seismic: A self-exciting point process model for predicting tweet
+  popularity.
+\newblock {\em Proceedings of the 21th ACM SIGKDD International Conference on
+  Knowledge Discovery and Data Mining}, 2015.
+
+\end{thebibliography}

@@ -1,0 +1,42 @@
+###################################################################################################
+Course: EarthSciences_ResGeo202_Spring2015
+
+Question: "SV_eXSRIFpo2NMAAPr","QID1","How positive or negative was your overall experience with the\
+course?","0","MC","Q1.1"
+
+State: Figure plotted
+###################################################################################################
+
+###################################################################################################
+Course: EarthSciences_ReservGeomech_Spring2016
+
+Question: "SV_1z9qEKVZ53Yi4It","QID1","How positive or negative was your overall experience with the course?","0","MC","experience"
+
+State: insufficient data
+###################################################################################################
+
+###################################################################################################
+Course: Networking-SP/SelfPaced
+
+State: Don't have permission to access data
+###################################################################################################
+
+###################################################################################################
+Course: Networking/Winter2014
+
+State: No question description data
+###################################################################################################
+
+###################################################################################################
+Course: MedStats-SP/SelfPaced
+
+State: No question descrition data & insufficient data
+###################################################################################################
+
+###################################################################################################
+Course: MedStats./Summer2015
+
+Question: "SV_9XLY0yAbJFsjhBP","QID1","How good or bad was your overall experience with the course?","0","MC","Q1.1"
+
+State: Figure plotted
+###################################################################################################

@@ -4,10 +4,11 @@ from sklearn import linear_model, datasets, metrics
 from sklearn.neural_network import BernoulliRBM
 from sklearn.pipeline import Pipeline
 
-from demographic_feature_extraction import *
+#from demographic_feature_extraction import *
+from combined_feature_extractor import *
 
 
-logistic_classifier = linear_model.LogisticRegression(C=100.0)
+logistic_classifier = linear_model.LogisticRegression(C=100.0, penalty='l1')
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y,
                                                     test_size=0.2,
                                                     random_state=0)
@@ -17,6 +18,8 @@ print("Logistic regression using raw pixel features:\n%s\n" % (
     metrics.classification_report(
         Y_test,
         logistic_classifier.predict(X_test))))
+
+print logistic_classifier.coef_
 
 
 

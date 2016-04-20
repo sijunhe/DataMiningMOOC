@@ -9,7 +9,7 @@ screen_name_to_year_of_birth = defaultdict(int)
 screen_name_to_education = defaultdict(int)
 
 ## Get ResponseID - UserID matching
-with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.csv', 'r') as csvfile :	
+with open('survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.csv', 'r') as csvfile :	
     lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
     
     for line in lines :
@@ -19,7 +19,7 @@ with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_respondent_
 # print responseUserID
 
 # Get Survey Data, only get the ID that has a matching 
-with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_response.csv', 'r') as csvfile :	
+with open('survey_post_EarthSciences_ResGeo202_Spring2015_response.csv', 'r') as csvfile :	
     lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
     for line in lines :
         if (line[2] == "Q1.1" and line[4] != ''):
@@ -27,8 +27,23 @@ with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_response.cs
                 userScore[responseUserID[line[1]]] = line[4]
 
 # print userScore
-with open('../../data/EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile :
+year_count = 0
+gender_count = 0
+education_count = 0
+birth_years = []
+
+with open('EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile :
 	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
+	for line in lines :
+		if line[0] in userScore : 
+			if line[2] != "\\N" :
+				birth_years.append(int(line[2]))
+birth_years = sorted(birth_years)
+median_birht_year = birth_years[len(birth_years) / 2]
+#print median_birht_year
+
+with open('EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile :
+	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')				
 	for line in lines :
 		if line[0] in userScore : 
 
@@ -38,16 +53,17 @@ with open('../../data/EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r')
 			if line[1] == "f" :
 				screen_name_to_gender[line[0]] = 1
 			if line[1] not in screen_name_to_gender and line[0] != "\\N" :
+				#gender_count += 1
 				screen_name_to_gender[line[0]] = 0
 
 			# year_of_birth
 			if line[2] != "\\N" :
 				screen_name_to_year_of_birth[line[0]] = int(line[2])
 
-			# ?????????????????????????????????????????????????
-			## should set it to 0 if birth year not provided???
+			# median interpolation
 			if line[2] == "\\N" and line[0] != "\\N":
-				screen_name_to_year_of_birth[line[0]] = 0
+				screen_name_to_year_of_birth[line[0]] = median_birht_year
+				#year_count += 1
 			
 			# level_of_education: 
 			# Doctorate -> 7
@@ -74,12 +90,14 @@ with open('../../data/EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r')
 				screen_name_to_education[line[0]] = 1
 			if line[0] not in screen_name_to_education and line[0] != "\\N":
 				screen_name_to_education[line[0]] = 0
-			
-
-
-# print len(screen_name_to_gender)
-# print len(screen_name_to_year_of_birth)
-# print len(screen_name_to_education)
+				#education_count += 1
+#print birth_years			
+#print year_count
+#print gender_count
+#print education_count
+print len(screen_name_to_gender)
+print len(screen_name_to_year_of_birth)
+print len(screen_name_to_education)
 
 X = np.array([0, 0, 0])
 # Y = np.array([0])
@@ -91,6 +109,10 @@ for id in userScore:
 	# Y = np.vstack([Y, [userScore[id]]])
 	Y.append(userScore[id])
 
+X = np.delete(X, 0, 0)
 print X
 print Y
+
+print len(X)
+print len(Y)
 

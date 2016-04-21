@@ -7,6 +7,11 @@ userScore = {}
 screen_name_to_gender = defaultdict(int)
 screen_name_to_year_of_birth = defaultdict(int)
 screen_name_to_education = defaultdict(int)
+screen_name_to_nationality = defaultdict(int)
+# usage : we parse an dict of nationality from three letters to an index
+# 		  i.e "USA" -> 0
+# 		  screen_name_to_nationality[id] = the index of the nationality to be set to 1
+#  		  for all others, set to 0
 
 ## Get ResponseID - UserID matching
 with open('survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.csv', 'r') as csvfile :	
@@ -32,6 +37,7 @@ gender_count = 0
 education_count = 0
 birth_years = []
 
+# Get year_of_birth median
 with open('EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile :
 	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
 	for line in lines :
@@ -41,6 +47,19 @@ with open('EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile
 birth_years = sorted(birth_years)
 median_birht_year = birth_years[len(birth_years) / 2]
 #print median_birht_year
+
+demo_arr = []
+demo_dict = {}
+demo_count = 0
+# Get nationality features
+with open('EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile :
+	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
+	for line in lines :
+		if line[4] not in demo_dict and line[4] != "country_three_letters" and line[4] != "\\N":
+			demo_dict[line[4]] = demo_count
+			demo_arr.append(line[4])
+			demo_count += 1
+
 
 with open('EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile :
 	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')				
@@ -91,6 +110,11 @@ with open('EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile
 			if line[0] not in screen_name_to_education and line[0] != "\\N":
 				screen_name_to_education[line[0]] = 0
 				#education_count += 1
+
+			# nationality
+			if line[0] != "\\N" :
+				screen_name_to_nationality[line[0]] = demo_dict[line[4]]
+
 #print birth_years			
 #print year_count
 #print gender_count
@@ -99,17 +123,22 @@ print len(screen_name_to_gender)
 print len(screen_name_to_year_of_birth)
 print len(screen_name_to_education)
 
-X = np.array([0, 0, 0])
+#X = np.array([0, 0, 0])
+X = np.array([0] * (4 + demo_count))
 # Y = np.array([0])
-Y = [0]
+Y = []
 
 for id in userScore:
 	newrow = [screen_name_to_gender[id], screen_name_to_year_of_birth[id], screen_name_to_education[id]]
+	newrow += [0] * (demo_count + 1)
+	newrow[screen_name_to_nationality[id] + 3] = 1
 	X = np.vstack([X, newrow])
 	# Y = np.vstack([Y, [userScore[id]]])
 	Y.append(userScore[id])
 
 X = np.delete(X, 0, 0)
+print demo_arr[55]
+print X[0]
 print X
 print Y
 

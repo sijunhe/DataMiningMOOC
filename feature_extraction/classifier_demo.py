@@ -14,13 +14,6 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y,
                                                     random_state=0)
 logistic_classifier.fit(X_train, Y_train)
 
-print("Logistic regression using raw pixel features:\n%s\n" % (
-    metrics.classification_report(
-        Y_test,
-        logistic_classifier.predict(X_test))))
-
-print logistic_classifier.coef_
-
 
 
 logistic = linear_model.LogisticRegression()
@@ -42,3 +35,10 @@ print("Logistic regression using RBM features:\n%s\n" % (
     metrics.classification_report(
         Y_test,
         classifier.predict(X_test))))
+
+print("Logistic regression using raw features:\n%s\n" % (
+    metrics.classification_report(
+        Y_test,
+        logistic_classifier.predict(X_test))))
+
+print logistic_classifier.coef_

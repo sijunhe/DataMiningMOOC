@@ -1,9 +1,12 @@
 import csv
 from collections import defaultdict
 import numpy as np
+from sklearn.cross_validation import train_test_split
 
 responseUserID = {}
 userScore = {}
+videoCounts = defaultdict(int)
+videoCountsClassification = defaultdict(int)
 screen_name_to_gender = defaultdict(int)
 screen_name_to_year_of_birth = defaultdict(int)
 screen_name_to_education = defaultdict(int)
@@ -26,7 +29,7 @@ with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_response.cs
     for line in lines :
         if (line[2] == "Q1.1" and line[4] != ''):
             if line[1] in responseUserID:
-                userScore[responseUserID[line[1]]] = line[4]
+                userScore[responseUserID[line[1]]] = int(line[4])
 
 # extracting demographic feature
 with open('../../data/EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r') as csvfile :
@@ -94,14 +97,51 @@ with open('../../data/EarthSciences_ResGeo202_Spring2015_Forum.csv', 'r') as csv
 			if line[2] == "Comment":
 				screen_name_to_comment_count[line[1]] += 1
 
-X = np.array([0, 0, 0, 0, 0])
+
+# Extracting video counts
+first = True
+with open('../countVideos/EarthSciences_ResGeo202_Spring2015_UserVideo_Matrix.csv', 'r') as csvfile :
+	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
+	for line in lines :
+		if first:
+			first = False
+			continue
+		key = line[0]
+		count = 0
+		for i in xrange(1, len(line)):
+			count += int(line[i])
+		videoCounts[key] = count
+		countClass = 0
+		if count > 18:
+			countClass = 1
+		videoCountsClassification[key] = countClass
+		# print line
+
+# number of features
+width = 5
+# number of data
+height = len(userScore)
+
+X = np.zeros((height, width))
 # Y = np.array([0])
-Y = [0]
+Y = np.zeros(height)
 
+i = 0
 for id in userScore:
-	newrow = [screen_name_to_gender[id], screen_name_to_year_of_birth[id], screen_name_to_education[id], screen_name_to_post_count[id], screen_name_to_comment_count[id]]
-	X = np.vstack([X, newrow])
-	# Y = np.vstack([Y, [userScore[id]]])
-	Y.append(userScore[id])
+	X[i][0] = screen_name_to_gender[id]
+	X[i][1] = screen_name_to_year_of_birth[id]
+	X[i][2] = screen_name_to_education[id]
+	X[i][3] = screen_name_to_post_count[id]
+	X[i][4] = screen_name_to_comment_count[id]
 
+	# X[i][0] = screen_name_to_education[id]
+	Y[i] = videoCountsClassification[id]
+	i += 1
+
+# print X
+# print Y
+
+x_train, x_test, y_train, y_test = train_test_split(X, Y,
+                                                    test_size=0.2,
+                                                    random_state=0)
 

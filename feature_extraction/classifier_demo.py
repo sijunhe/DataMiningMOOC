@@ -29,12 +29,12 @@ rbm.n_components = 100
 logistic.C = 6000.0
 
 # Training RBM-Logistic Pipeline
-classifier.fit(X_train, Y_train)
+# classifier.fit(X_train, Y_train)
 
-print("Logistic regression using RBM features:\n%s\n" % (
-    metrics.classification_report(
-        Y_test,
-        classifier.predict(X_test))))
+# print("Logistic regression using RBM features:\n%s\n" % (
+#     metrics.classification_report(
+#         Y_test,
+#         classifier.predict(X_test))))
 
 print("Logistic regression using raw features:\n%s\n" % (
     metrics.classification_report(
@@ -42,3 +42,7 @@ print("Logistic regression using raw features:\n%s\n" % (
         logistic_classifier.predict(X_test))))
 
 print logistic_classifier.coef_
+
+
+# print "logistic_classifier RBM accuracy", metrics.accuracy_score(Y_test, classifier.predict(X_test))
+print "logistic_classifier accuracy", metrics.accuracy_score(Y_test, logistic_classifier.predict(X_test))

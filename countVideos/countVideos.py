@@ -9,15 +9,15 @@
 #######################################################################################################################
 import csv, re
 import numpy as np
-fileName = 'EarthSciences_ResGeo202_Spring2015_VideoInteraction.csv'
+fileName = '../../codes/networking_winter2014/Engineering_Networking_Winter2014_VideoInteraction.csv'
 video_names = [] ## a list for all the video names
 video_name_id_matching = {} ## one on one matching for video_name to videoID
 user_watched_video = {} ## a dictionary for the video each user watched
 event_type = ['play_video','stop_video','pause_video','seek_video']
-with open('../../data/' + fileName,'r') as csvfile :
+with open(fileName,'r') as csvfile :
     lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
     for line in lines :       
-        if line[0] in event_type and re.match('Unit\s\d+\.\d+',line[1]):
+        if line[0] in event_type : #and re.match('Unit\s\d+\.\d+',line[1]):
             if line[1] not in video_names:
                 video_names.append(line[1])
                 video_name_id_matching[line[14]] = line[1]
@@ -27,12 +27,12 @@ with open('../../data/' + fileName,'r') as csvfile :
                 user_watched_video[line[13]].append(line[1])
 
 ## Sorted videos in chronological order 
-sorted_video_name = sorted(video_names, key=lambda video: float(re.search('(?<=Unit)\s\d+\.\d+',video).group(0)))
-
+# sorted_video_name = sorted(video_names, key=lambda video: float(re.search('(?<=Unit)\s\d+\.\d+',video).group(0)))
+sorted_video_name = video_names
 ## Create a matrix of user - video watched relation 
 ## 1 = user watched this video
 ## 0 = user didn't watch this video
-outputName = 'EarthSciences_ResGeo202_Spring2015_UserVideo_Matrix.csv'
+outputName = 'Engineering_Networking_Winter2014_UserVideo_Matrix.csv'
 outputFile = open(outputName, 'w')
 columnNames = 'UserName,'
 for video in sorted_video_name:

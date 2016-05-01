@@ -134,7 +134,10 @@ for id in userScore:
 	newrow[screen_name_to_nationality[id] + 3] = 1
 	X = np.vstack([X, newrow])
 	# Y = np.vstack([Y, [userScore[id]]])
-	Y.append(userScore[id])
+	if int(userScore[id]) < 6:
+		Y.append(5)
+	else :
+		Y.append(int(userScore[id]))
 
 X = np.delete(X, 0, 0)
 print demo_arr[55]

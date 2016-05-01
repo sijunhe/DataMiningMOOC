@@ -2,6 +2,7 @@ import csv
 from collections import defaultdict
 import numpy as np
 from sklearn.cross_validation import train_test_split
+from pre_survey import *
 
 responseUserID = {}
 userScore = {}
@@ -172,7 +173,7 @@ with open('../countVideos/EarthSciences_ResGeo202_Spring2015_VideoNames.csv', 'r
 videoFeatureLen = len(videoNames)
 videoFeatureTrainLen = train_num
 # number of other features
-widthOther = 7
+widthOther = 9
 width = widthOther + videoFeatureTrainLen
 # number of data
 height = len(videoCountsClassification)
@@ -194,6 +195,8 @@ for id in videoCountsClassification:
 	X[i][4] = screen_name_to_comment_count[id]
 	X[i][5] = userAvgExtraTime[id]
 	X[i][6] = userTtlExtraTime[id]
+	# X[i][7] = screen_name_courses_started[id]
+	# X[i][8] = screen_name_courses_finished[id]
 
 	for j in range(widthOther, width):
 		video = videoNames[j - widthOther]

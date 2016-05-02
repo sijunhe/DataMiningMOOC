@@ -18,7 +18,7 @@ screen_name_to_education = defaultdict(int)
 screen_name_to_post_count = defaultdict(int)
 screen_name_to_comment_count = defaultdict(int)
 
-train_num = 12
+train_num = 5
 
 ## Get ResponseID - UserID matching
 with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.csv', 'r') as csvfile :	
@@ -129,7 +129,7 @@ with open('../countVideos/EarthSciences_ResGeo202_Spring2015_UserVideo_Matrix.cs
 			count += int(line[i])
 		videoCounts[key] = count
 		countClass = 0
-		if count >= 1:
+		if count >= 3:
 			countClass = 1
 		videoCountsClassification[key] = countClass
 		# print line

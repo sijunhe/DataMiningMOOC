@@ -10,25 +10,25 @@ video_count_distribution = {}
 response_ids = Set()
 response_user_mapping = {}
 user_response_mapping = {}
-with open('../../codes/earth_Spring2015/survey_post_EarthSciences_ResGeo202_Spring2015_response.csv', 'r') as csvfile :
-# with open('../../codes/networking_winter2014/Engineering_Networking_Winter2014_survey_responses.csv', 'r') as csvfile :
-	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
-	for line in lines :
-		if (line[2] == "Q1.1" and line[4] != ''):
-			response_ids.add(line[1])
-# print len(response_ids)
+# with open('../../codes/earth_Spring2015/survey_post_EarthSciences_ResGeo202_Spring2015_response.csv', 'r') as csvfile :
+# # with open('../../codes/networking_winter2014/Engineering_Networking_Winter2014_survey_responses.csv', 'r') as csvfile :
+# 	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
+# 	for line in lines :
+# 		if (line[2] == "Q1.1" and line[4] != ''):
+# 			response_ids.add(line[1])
+# # print len(response_ids)
 
-with open('../../codes/earth_Spring2015/survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.csv', 'r') as csvfile :
-# with open('../../codes/networking_winter2014/Engineering_Networking_Winter2014_survey_response_metadata.csv', 'r') as csvfile :
-	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
-	for line in lines :
-		# if line[0] not in response_user_mapping and line[0] in response_ids :
-		if line[1] not in response_user_mapping and line[1] in response_ids :
-			# response_user_mapping[line[0]] = line[1]
-			response_user_mapping[line[1]] = line[2]	
-			# user_response_mapping[line[1]] = line[0]
-			user_response_mapping[line[2]] = line[1]
-print len(response_user_mapping)
+# with open('../../codes/earth_Spring2015/survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.csv', 'r') as csvfile :
+# # with open('../../codes/networking_winter2014/Engineering_Networking_Winter2014_survey_response_metadata.csv', 'r') as csvfile :
+# 	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
+# 	for line in lines :
+# 		# if line[0] not in response_user_mapping and line[0] in response_ids :
+# 		if line[1] not in response_user_mapping and line[1] in response_ids :
+# 			# response_user_mapping[line[0]] = line[1]
+# 			response_user_mapping[line[1]] = line[2]	
+# 			# user_response_mapping[line[1]] = line[0]
+# 			user_response_mapping[line[2]] = line[1]
+# print len(response_user_mapping)
 
 with open('EarthSciences_ResGeo202_Spring2015_UserVideo_Matrix.csv') as csvfile:
 # with open('Engineering_Networking_Winter2014_UserVideo_Matrix.csv') as csvfile:

@@ -7,6 +7,7 @@ from pre_survey import *
 responseUserID = {}
 userScore = {}
 userVideoTime = {}
+userVideoMatrix = {}
 videoNames = []
 videoCounts = defaultdict(int)
 videoCountsClassification = defaultdict(int)
@@ -18,7 +19,8 @@ screen_name_to_education = defaultdict(int)
 screen_name_to_post_count = defaultdict(int)
 screen_name_to_comment_count = defaultdict(int)
 
-train_num = 5
+train_num = 7
+countThreshhold = 2
 
 ## Get ResponseID - UserID matching
 with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_respondent_metadata.csv', 'r') as csvfile :	
@@ -115,6 +117,12 @@ with open('../../data/EarthSciences_ResGeo202_Spring2015_Forum.csv', 'r') as csv
 				screen_name_to_comment_count[line[1]] += 1
 
 
+with open('../countVideos/EarthSciences_ResGeo202_Spring2015_VideoNames.csv', 'r') as csvfile :
+	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
+	for line in lines :
+		video = line[0]
+		videoNames.append(video)
+
 # Extracting video counts
 first = True
 with open('../countVideos/EarthSciences_ResGeo202_Spring2015_UserVideo_Matrix.csv', 'r') as csvfile :
@@ -129,10 +137,15 @@ with open('../countVideos/EarthSciences_ResGeo202_Spring2015_UserVideo_Matrix.cs
 			count += int(line[i])
 		videoCounts[key] = count
 		countClass = 0
-		if count >= 3:
+		if count >= countThreshhold:
 			countClass = 1
 		videoCountsClassification[key] = countClass
 		# print line
+		for i in xrange(1, len(line)):
+			video = videoNames[i-1]
+			if key not in userVideoMatrix:
+				userVideoMatrix[key] = {}
+			userVideoMatrix[key][video] = int(line[i])
 
 
 with open('../countVideos/EarthSciences_ResGeo202_Spring2015_UserAvgExtraTime.csv', 'r') as csvfile :
@@ -162,18 +175,14 @@ with open('../countVideos/EarthSciences_ResGeo202_Spring2015_UserVideoTime.csv',
 		userVideoTime[user][video] = time
 # print userVideoTime
 
-with open('../countVideos/EarthSciences_ResGeo202_Spring2015_VideoNames.csv', 'r') as csvfile :
-	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
-	for line in lines :
-		video = line[0]
-		videoNames.append(video)
+
 
 # print videoNames
 
 videoFeatureLen = len(videoNames)
 videoFeatureTrainLen = train_num
 # number of other features
-widthOther = 9
+widthOther = 10
 width = widthOther + videoFeatureTrainLen
 # number of data
 height = len(videoCountsClassification)
@@ -188,21 +197,23 @@ for id in videoCountsClassification:
 # for id in userScore:
 	# print id
 
-	X[i][0] = screen_name_to_gender[id]
-	X[i][1] = screen_name_to_year_of_birth[id]
-	X[i][2] = screen_name_to_education[id]
-	X[i][3] = screen_name_to_post_count[id]
-	X[i][4] = screen_name_to_comment_count[id]
-	X[i][5] = userAvgExtraTime[id]
-	X[i][6] = userTtlExtraTime[id]
+	# X[i][0] = screen_name_to_gender[id]
+	# X[i][1] = screen_name_to_year_of_birth[id]
+	# X[i][2] = screen_name_to_education[id]
+	# X[i][3] = screen_name_to_post_count[id]
+	# X[i][4] = screen_name_to_comment_count[id]
+	# X[i][5] = userAvgExtraTime[id]
+	# X[i][6] = userTtlExtraTime[id]
 	# X[i][7] = screen_name_courses_started[id]
 	# X[i][8] = screen_name_courses_finished[id]
+	# X[i][9] = screen_name_hours_spent[id]
 
 	for j in range(widthOther, width):
 		video = videoNames[j - widthOther]
 		X[i][j] = 0
 		if id in userVideoTime and video in userVideoTime[id]:
 			X[i][j] = userVideoTime[id][video]
+			# X[i][j] = userVideoMatrix[id][video]
 
 	# X[i][0] = videoCountsClassification[id]
 	# Y[i] = userScore[id]

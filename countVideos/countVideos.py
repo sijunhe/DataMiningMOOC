@@ -35,7 +35,7 @@ with open('../../data/' + fileName,'r') as csvfile :
     lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
     for line in lines :
         if line[0] in event_type:
-            if re.match('Unit\s+\d+\.\d+',line[1]):
+            if re.match('Unit\s\d+\.\d+',line[1]):
                 if line[1] not in video_names:
                     video_names.append(line[1])
                     video_name_id_matching[line[14]] = line[1]
@@ -52,7 +52,7 @@ with open('../../data/' + fileName,'r') as csvfile :
         
 
 ## Sorted videos in chronological order 
-sorted_video_name = sorted(video_names, key=lambda video: float(re.search('(?<=Unit)\s+\d+\.\d+',video).group(0)))
+sorted_video_name = sorted(video_names, key=lambda video: float(re.search('(?<=Unit)\s\d+\.\d+',video).group(0)))
 ## Create a matrix of user - video watched relation 
 ## 1 = user watched this video
 ## 0 = user didn't watch this video

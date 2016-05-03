@@ -7,9 +7,9 @@ survey_id_hours_spent = {}
 courses_started_dict = {0:0}
 courses_finished_dict = {0:0}
 hours_spent_dict = {0.0:0}
-screen_name_courses_started = {}
-screen_name_courses_finished = {}
-screen_name_hours_spent = {}
+screen_name_courses_started = defaultdict(int)
+screen_name_courses_finished = defaultdict(int)
+screen_name_hours_spent = defaultdict(int)
 with open ('../../data/EarthSciences_ResGeo202_Spring2015_survey_responses.csv', 'r') as csvfile :
 	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
 	for line in lines :

@@ -58,7 +58,7 @@ sorted_video_name = sorted(video_names, key=lambda video: float(re.search('(?<=U
 ## 0 = user didn't watch this video
 outputName = 'EarthSciences_ResGeo202_Spring2015_UserVideo_Matrix.csv'
 outputFile = open(outputName, 'w')
-columnNames = 'UserName,Welcome'
+columnNames = 'UserName,Welcome,'
 for video in sorted_video_name:
     columnNames += (video + ',')
 columnNames = columnNames[:-1] + '\n'

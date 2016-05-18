@@ -1,0 +1,81 @@
+Unit 1
+
+Unit 2
+Homework 1 - Calculating Overburden Stress
+Question 1: Density Profiles
+Question 1.a: Density Profiles
+Question 2: Overburden Stress Profiles
+Question 2.a: Overburden Stress Profiles
+Question 3: Overburden Stress Gradient Profiles
+Question 3.a: Overburden Stress Gradient Profiles
+Question 4: Porosity Profiles
+Question 4.a: Porosity Profiles
+
+Unit3
+Homework 2 - Estimating the Onset of Overpressure
+Question 1: Concepts of Overpressure
+Question 1.a: Concepts of Overpressure
+Question 2: Estimating the onset of overpressure
+Question 3: Estimating the magnitude of overpressure
+
+Unit4
+
+Unit5
+Homework 3 - Estimating Rock Strength from Geophysical Logs
+Question 1: Estimating UCS
+Question 1.a: Estimating UCS
+
+Unit6
+
+Unit7
+
+Unit8
+Homework 4 - Estimating Limits on Shmax
+Question 1: Which Stress States Are Possible?
+Question 1, Case 1: Which Stress States Are Possible?
+Question 2: Constraints on Shmax'
+
+Unit9
+Homework 5 - Analyzing Fractures from FMI Image Logs
+Part 1, question 1, Dominant Fracture Orientations
+Part 1 Question 2: Dominant Fracture Orientations
+Part 1 Question 3: Dominant Fracture Orientations
+Part 2 Question 1: Dominant Fracture Orientations
+Part 2 Question 2: Dominant Fracture Orientations
+Part 3 Question 1: Fracture Clustering With Depth
+Part 3 Question 2: Fracture Clustering With Depth
+
+Unit10
+
+Unit11
+
+Unit12
+Homework 6 - Constraining Stress Magnitudes from Wellbore Failure
+Question 1 - Constraining Stress Magnitudes using the Stress Polygon
+Question 2 - Constraining Stress Magnitudes using the Stress Polygon
+Question 3 - Constraining Stress Magnitudes using the Stress Polygon
+Question 4 - Constraining Stress Magnitudes using the Stress Polygon
+Question 5 - Constraining Stress Magnitudes using the Stress Polygon
+
+Unit13
+Homework 7 - Building a Geomechanical Model
+Question 1 - Shmax upper limit at 5000 ft
+Question 2 - Shmax lower limit at 5000 ft
+Question 3 - Constraining Stress Regime at 5000 ft
+Question 4 - Fault activation at 5000 ft
+Question 5 - Shmax upper limit at 6000 ft
+Question 6 - Shmax lower limit at 6000 ft
+Question 7 - Constraining Stress Regime at 6000 ft
+Question 8 - Fault activation at 6000 ft
+
+Unit14
+
+Unit15
+
+Unit16
+Homework 8 - Identifying Critically-Stressed Faults
+Question 1: Critically-Stressed Faults
+Question 2: Mis-Oriented Faults
+Question 3: Mis-Oriented Faults
+Question 4: Mis-Oriented Faults
+Question 5: Formations with Critically Stressed Fractures

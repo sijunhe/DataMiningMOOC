@@ -7,7 +7,7 @@ count = 0
 #totallines = 0
 import csv
 #with open('survey_post_EarthSciences_ResGeo202_Spring2015_response.csv', 'r') as csvfile :
-with open('survey_post_Medicine_MedStats_Summer2015_response.csv', 'r') as csvfile :	
+with open('../../data/survey_post_Medicine_MedStats_Summer2015_response.csv', 'r') as csvfile :	
 #with open('test.csv', 'r') as csvfile :
 	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
 	for line in lines :

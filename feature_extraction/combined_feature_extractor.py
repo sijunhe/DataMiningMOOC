@@ -21,7 +21,7 @@ screen_name_to_comment_count = defaultdict(int)
 screen_name_activity_score = {}
 activity_name_set = []
 
-train_num = 7
+train_num = 20
 countThreshhold = 2
 
 # get activity grade
@@ -209,7 +209,7 @@ activityFeatureLen = 0
 videoFeatureLen = len(videoNames)
 videoFeatureTrainLen = train_num
 # number of other features
-widthOther = 10
+widthOther = 0
 width = widthOther + videoFeatureTrainLen + activityFeatureLen
 # number of data
 height = len(videoCountsClassification)
@@ -224,23 +224,23 @@ for id in videoCountsClassification:
 # for id in userScore:
 	# print id
 
-	X[i][0] = screen_name_to_gender[id]
-	X[i][1] = screen_name_to_year_of_birth[id]
-	X[i][2] = screen_name_to_education[id]
-	X[i][3] = screen_name_to_post_count[id]
-	X[i][4] = screen_name_to_comment_count[id]
-	X[i][5] = userAvgExtraTime[id]
-	X[i][6] = userTtlExtraTime[id]
-	X[i][7] = screen_name_courses_started[id]
-	X[i][8] = screen_name_courses_finished[id]
-	X[i][9] = screen_name_hours_spent[id]
+	# X[i][0] = screen_name_to_gender[id]
+	# X[i][1] = screen_name_to_year_of_birth[id]
+	# X[i][2] = screen_name_to_education[id]
+	# X[i][3] = screen_name_to_post_count[id]
+	# X[i][4] = screen_name_to_comment_count[id]
+	# X[i][5] = userAvgExtraTime[id]
+	# X[i][6] = userTtlExtraTime[id]
+	# X[i][7] = screen_name_courses_started[id]
+	# X[i][8] = screen_name_courses_finished[id]
+	# X[i][9] = screen_name_hours_spent[id]
 
 	for j in range(widthOther, width - activityFeatureLen):
 		video = videoNames[j - widthOther]
 		X[i][j] = 0
 		if id in userVideoTime and video in userVideoTime[id]:
 			X[i][j] = userVideoTime[id][video]
-			X[i][j] = userVideoMatrix[id][video]
+			# X[i][j] = userVideoMatrix[id][video]
 
 	# for j in range(activityFeatureLen):
 	# 	video = activity_name_set[j]

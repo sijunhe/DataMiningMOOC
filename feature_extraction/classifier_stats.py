@@ -54,3 +54,4 @@ print bestLRclf.coef_
 
 # print "logistic_classifier RBM accuracy", metrics.accuracy_score(Y_test, classifier.predict(X_test))
 print "logistic_classifier accuracy", metrics.accuracy_score(Y_test, bestLRclf.predict(X_test))
+print "logistic_regression mean_squared_error", metrics.mean_squared_error(Y_test, bestLRclf.predict(X_test))

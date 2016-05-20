@@ -49,7 +49,7 @@ Firms and Industries Changing Over Time
 
 'Cost Curves 8A' # this is a lecture
 ???????????????
-'Profits and Losses (8B)' #this is a lecture
+'Profits and Losses (8B)' # this is a lecture
 ???????????????
 
 'Lecture: Changes in the Size of a Firm over Time'
@@ -172,7 +172,7 @@ Short Run Macro
 
 'Lecture: Using the Model I -  The Case of Change in G'
 'Quiz: Using the Model I -  The Case of Change in G'
-'Using the Model II -  The Case of a Change in Monetary Policy'
+'Using the Model II -  The Case of a Change in Monetary Policy' # this is a lecture
 'Quiz: Using the Model II -  The Case of a Change in Monetary Policy'
 
 ####################################################################################

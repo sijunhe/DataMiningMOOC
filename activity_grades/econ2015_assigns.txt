@@ -1,0 +1,207 @@
+####################################################################################
+The Basic Core of Economics
+
+'Lecture: Welcome to the Principles of Economics'
+'Quiz: Welcome to the Principles of Economics'
+'Lecture: The Central Idea - Choice, Scarcity, and Interaction'
+'Quiz: The Central Idea'
+'Lecture: Production Possibilities and Economic Growth'
+'Quiz: Production Possibilities and Economic Growth'
+
+'Lecture: Observing and Explaining the Economy'
+'Quiz: Observing and Explaining the Economy'
+
+'Lecture: Supply and Demand'
+'Quiz: Supply and Demand'
+'Lecture: Market Equilibrium in the Supply and Demand Model'
+???????????????
+
+'Lecture: The Role of Prices and Elasticity'
+'Quiz: Price and Elasticity'
+'Lecture: Price Ceilings and Floors'
+'Quiz: Price Ceilings and Floors'
+
+####################################################################################
+The Competitive Equilibrium Model
+
+'Lecture: Derivation of the Demand Curve'
+'Quiz: Derivation of the Demand Curve'
+'Lecture: Marginal Benefit and Consumer Surplus'
+'Quiz: Marginal Benefit and Consumer Surplus'
+
+'Lecture: Derivation of the Supply Curve'
+???????????????
+'Lecture: Marginal Product of Labor and Marginal Costs'
+'Quiz: Marginal Product of Labor and Marginal Costs'
+
+'Lecture: Are Competitive Markets Efficient?'
+'Quiz: Are Competitive Markets Efficient?'
+'Lecture: Interpreting Double Auction Markets'
+
+####################################################################################
+Firms and Industries Changing Over Time
+
+'Cost Curves 8A'
+???????????????
+'Profits and Losses (8B)'
+???????????????
+
+'Lecture: Changes in the Size of a Firm over Time'
+???????????????
+'Lecture: The Rise and Fall of Industries'
+'Quiz: The Rise and Fall of Industries'
+
+####################################################################################
+Deviations from Competition
+
+'Lecture: Monopoly'
+'Quiz on 10A'
+'Lecture: Price Discrimination'
+???????????????
+
+'Lecture: Monopolistic Competition'
+'Quiz: Monopolistic Competition'
+'Lecture: Oligopoly'
+'Lecture: Oligopoly Pt. 2'
+'Quiz: Oligopoly'
+
+'Lecture: Economic Regulation'
+'Quiz: Economic Regulation'
+'Lecture: Antitrust Policy'
+'Quiz: Antitrust Policy'
+
+####################################################################################
+Labor Markets
+
+'Lecture: The Labor Demand Curve and the Behavior of Firms (14A)'
+???????????????
+'Lecture:  Labor Supply, Workers, and Market Equilibrium (14B)'
+???????????????
+
+'Lecture: Using the Labor Supply and Demand Model (15A)'
+???????????????
+
+####################################################################################
+Key Economic Policy Issues
+
+'Lecture: Tax Policy (16A)'
+'Quiz: Tax Policy'
+'Lecture: Transfers (16B)'
+'Quiz: Transfers'
+'Lecture: Income Distribution (16C)
+'Dropdown'
+
+'Lecture: Public Goods (17A)'
+???????????????
+'Lecture: Externalities (17B)'
+???????????????
+
+'Lecture: Government Failure (17C)'
+???????????????
+
+####################################################################################
+Financial and Capital Markets
+
+'Lecture: The Demand and Supply of Capital Including Housing'
+'Quiz: The Demand and Supply of Capital Including Housing'
+
+'Lecture: Bond Markets and the Price of Bonds'
+'Quiz: Bond Markets and the Price of Bonds'
+'Lecture: Financial Market Risk I'
+'Quiz: Financial Market Risk I'
+'Lecture: Financial Market Risk II'
+'Quiz: Financial Market Risk II'
+
+####################################################################################
+Macroeconomics:	The Big Picture 
+
+'Lecture: Preview of Macroeconomics I '
+'Quiz: Preview of Macroeconomics I '
+'Lecture: Preview of Macroeconomics II '
+'Quiz: Preview of Macroeconomics II'
+'Lecture: 4 Key Macro Variables'
+'Quiz: 4 Key Macro Variables'
+
+'Lecture: Elements of National Income & Product Accounting (21A)'
+???????????????
+'Lecture: Real GDP, the Price Level and Inflation (21B)'
+'Quiz: Real GDP, the Price Level and Inflation '
+
+####################################################################################
+Long Run Macroeconomics
+
+'Lecture: The Spending Allocation Model'
+'Quiz: The Spending Allocation Model'
+'Lecture: Using the Spending Allocation Model'
+'Quiz: Using the Spending Allocation Model'
+
+'Lecture: Macro Equilibrium in the Labor Market'
+???????????????
+
+'Lecture: Productivity and Economic Growth'
+'Quiz: Productivity and Economic Growth'
+'Lecture: The Growth Accounting Formula'
+???????????????
+
+'Lecture: Money and Inflation'
+'Quiz: Money and Inflation'
+'Lecture: The Fed and the Money Supply'
+'Quiz: The Fed and the Money Supply'
+'Optional Assignment'
+
+####################################################################################
+Short Run Macro
+
+'Lecture: Nature of Economic Fluctuations '
+'Quiz: Nature of Economic Fluctuations'
+'Lecture: Consumption Function and Its Implications'
+'Quiz: Consumption Function and Its Implications '
+
+'Lecture: The Economic Fluctuations Model I'
+'Quiz: The Economic Fluctuations Model I'
+'Lecture: The Economic Fluctuations Model II'
+'Quiz: The Economic Fluctuations Model II'
+'Lecture: The Economic Fluctuations Model III'
+'Quiz: The Economic Fluctuations Model III'
+
+'Lecture: Using the Model I -  The Case of Change in G'
+'Quiz: Using the Model I -  The Case of Change in G'
+'Using the Model II -  The Case of a Change in Monetary Policy'
+'Quiz: Using the Model II -  The Case of a Change in Monetary Policy'
+
+####################################################################################
+Macro Policy Issues
+
+'Lecture: Macroeconomic Policy Analysis - Part 1'
+'Lecture: Macroeconomic Policy Analysis - Part 2'
+???????????????
+
+'Lecture: The Government Budget, the Debt and the Deficit'
+???????????????
+'Lecture: Countercyclical Fiscal Policy'
+???????????????
+
+'Lecture: Monetary Policy I'
+???????????????
+'Lecture: Monetary Policy II'
+???????????????
+'Lecture: Monetary Policy III'
+???????????????
+
+'Lecture: Monetary Policy - Rules v Discretion'
+???????????????
+Lecture: Monetary Policy - Forward guidance and zero bound'
+'Multiple Choice'
+
+####################################################################################
+International Trade
+
+'Lecture: Comparative Advantage'
+???????????????
+'Lecture: Expanding Markets'
+???????????????
+
+'LECTURES (35A): TARIFFS AND QUOTAS'
+'Quiz: Tariffs and Quotas'
+'Lecture: International Trade Policy'
+'Quiz: International Trade Policy'

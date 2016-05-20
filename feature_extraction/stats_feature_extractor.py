@@ -7,6 +7,7 @@ from pre_survey import *
 responseUserID = {}
 userScore = {}
 userVideoTime = {}
+userVideoPeakPercentage = {}
 userVideoMatrix = {}
 videoNames = []
 videoCounts = defaultdict(int)
@@ -21,8 +22,11 @@ screen_name_to_comment_count = defaultdict(int)
 screen_name_activity_score = {}
 activity_name_set = []
 
-train_num = 7
-countThreshhold = 2
+train_num = 4
+# countThreshhold = 2
+
+# 3 categories
+countThreshholds = [1, 10]
 
 # get activity grade
 # with open("../../stats_data/HumanitiesSciences_StatLearning_Winter2016_ActivityGrade.csv", "r") as csvfile :
@@ -161,8 +165,11 @@ with open('../countVideos/HumanitiesSciences_StatLearning_Winter2016_UserVideo_M
 			count += int(line[i])
 		videoCounts[key] = count
 		countClass = 0
-		if count >= countThreshhold:
-			countClass = 1
+		for i in range(len(countThreshholds)):
+			threshhold = countThreshholds[i]
+			if count >= threshhold:
+				countClass = i+1
+
 		videoCountsClassification[key] = countClass
 		# print line
 		# print len(line)
@@ -200,6 +207,15 @@ with open('../countVideos/HumanitiesSciences_StatLearning_Winter2016_UserVideoTi
 		userVideoTime[user][video] = time
 # print userVideoTime
 
+with open('../countVideos/HumanitiesSciences_StatLearning_Winter2016_UserVideoPeakPercentage.csv', 'r') as csvfile :
+	lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
+	for line in lines :
+		user = line[0]
+		video = line[1]
+		time = float(line[2])
+		if user not in userVideoPeakPercentage:
+			userVideoPeakPercentage[user] = {}
+		userVideoPeakPercentage[user][video] = time
 
 
 # print videoNames
@@ -210,7 +226,7 @@ videoFeatureLen = len(videoNames)
 videoFeatureTrainLen = train_num
 # number of other features
 widthOther = 0
-width = widthOther + videoFeatureTrainLen + activityFeatureLen
+width = widthOther + videoFeatureTrainLen * 2 + activityFeatureLen
 # number of data
 height = len(videoCountsClassification)
 # height = len(userScore)
@@ -235,12 +251,20 @@ for id in videoCountsClassification:
 	# X[i][8] = screen_name_courses_finished[id]
 	# X[i][9] = screen_name_hours_spent[id]
 
-	for j in range(widthOther, width - activityFeatureLen):
+	for j in range(widthOther, widthOther + videoFeatureTrainLen):
 		video = videoNames[j - widthOther]
 		X[i][j] = 0
 		if id in userVideoTime and video in userVideoTime[id]:
 			# X[i][j] = userVideoTime[id][video]
 			X[i][j] = userVideoMatrix[id][video]
+
+	k = 0
+	for j in range(widthOther + videoFeatureTrainLen, widthOther + videoFeatureTrainLen * 2):
+		video = videoNames[k]
+		k += 1
+		X[i][j] = 0
+		if id in userVideoPeakPercentage and video in userVideoPeakPercentage[id]:
+			X[i][j] = userVideoPeakPercentage[id][video]
 
 	# for j in range(activityFeatureLen):
 	# 	video = activity_name_set[j]

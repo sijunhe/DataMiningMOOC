@@ -1,8 +1,8 @@
 ## Comments:
 ## Each unit is divided by "####" line. And sub-unit is divided by a new line. The names are screen names; for videos, the name is the
-## second field in videointeraction.csv and for grades, the name is the 14th field in activitygrade.csv(both start from 1). All the names
-## for lectures start with "Lecuture" while almost all the names for quizzes start with "Quiz". The "????????" means there should be a 
-## quiz according to the courseware but I couldn't find a matching one.
+## second field in videointeraction.csv and for grades, the name is the 14th field in activitygrade.csv(both start from 1). Almost all
+## the names for lectures start with "Lecture" and almost all the names for quizzes start with "Quiz". The "????????" means there should
+## be a quiz according to the courseware but I couldn't find a matching one.
 
 ####################################################################################
 The Basic Core of Economics
@@ -47,9 +47,9 @@ The Competitive Equilibrium Model
 ####################################################################################
 Firms and Industries Changing Over Time
 
-'Cost Curves 8A'
+'Cost Curves 8A' # this is a lecture
 ???????????????
-'Profits and Losses (8B)'
+'Profits and Losses (8B)' #this is a lecture
 ???????????????
 
 'Lecture: Changes in the Size of a Firm over Time'
@@ -95,7 +95,7 @@ Key Economic Policy Issues
 'Lecture: Transfers (16B)'
 'Quiz: Transfers'
 'Lecture: Income Distribution (16C)
-'Dropdown'
+'Dropdown' # this is a quiz
 
 'Lecture: Public Goods (17A)'
 ???????????????
@@ -197,7 +197,7 @@ Macro Policy Issues
 'Lecture: Monetary Policy - Rules v Discretion'
 ???????????????
 Lecture: Monetary Policy - Forward guidance and zero bound'
-'Multiple Choice'
+'Multiple Choice' # this is a quiz
 
 ####################################################################################
 International Trade

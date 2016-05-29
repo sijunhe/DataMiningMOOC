@@ -24,6 +24,7 @@ def feature_extractor(train_num = 1, use_profile=False):
 	screen_name_to_comment_count = defaultdict(int)
 	screen_name_activity_score = {}
 	activity_name_set = []
+	userGrade = {}
 
 	# train_num = 1
 
@@ -247,6 +248,28 @@ def feature_extractor(train_num = 1, use_profile=False):
 					userVideoGrade[user][videoId] = {}
 				userVideoGrade[user][videoId] = (quiz1, quiz2)
 
+
+	# statLearnWinter16Grades (grade, distinction, was_certified)
+	first = True
+	with open('../../stats_data/statLearnWinter16Grades.csv', 'r') as csvfile :
+		lines = csv.reader(csvfile, delimiter = ',', quotechar = '"')
+		for line in lines:
+			if first:
+				first = False
+				continue
+			user = line[0]
+			grade = float(line[1])
+			distinction = int(line[2])
+			was_certified = int(line[3])
+			good_grade = 0
+			if grade > 0.05:
+				good_grade = 1
+			if grade > 0.5:
+				good_grade = 2
+			userGrade[user] = (grade, distinction, was_certified, good_grade)
+
+	print userGrade
+
 	# print userVideoGrade
 
 	# print len(userScore)
@@ -261,15 +284,16 @@ def feature_extractor(train_num = 1, use_profile=False):
 		widthOther = 0
 		width = widthOther + videoFeatureTrainLen * 4 + activityFeatureLen
 		# number of data
-		# height = len(videoCountsClassification)
-		height = len(userScore)
+		height = len(videoCountsClassification)
+		# height = len(userScore)
 
 		X = np.zeros((height, width))
 		Y = np.zeros(height)
 
 		i = 0
+		for id in userGrade:
 		# for id in videoCountsClassification:
-		for id in userScore:
+		# for id in userScore:
 			# print id
 
 			# X[i][0] = screen_name_to_gender[id]
@@ -324,8 +348,9 @@ def feature_extractor(train_num = 1, use_profile=False):
 
 			# X[i][0] = videoCountsClassification[id]
 			
-			Y[i] = userScore[id]
+			# Y[i] = userScore[id]
 			# Y[i] = videoCountsClassification[id]
+			Y[i] = userGrade[id][3] 
 			i += 1
 
 	if predict_activity_grade:

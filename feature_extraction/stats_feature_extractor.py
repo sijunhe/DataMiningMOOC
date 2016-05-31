@@ -291,6 +291,7 @@ def feature_extractor(train_num = 1, use_profile=False):
 		Y = np.zeros(height)
 
 		i = 0
+
 		# for id in userGrade:
 		for id in videoCountsClassification:
 		# for id in userScore:
@@ -353,8 +354,10 @@ def feature_extractor(train_num = 1, use_profile=False):
 			# X[i][0] = videoCountsClassification[id]
 			
 			# Y[i] = userScore[id]
+
 			Y[i] = videoCountsClassification[id]
 			# Y[i] = userGrade[id][2] 
+
 			i += 1
 
 	if predict_activity_grade:

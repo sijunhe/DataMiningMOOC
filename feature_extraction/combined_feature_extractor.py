@@ -3,6 +3,7 @@ from collections import defaultdict
 import numpy as np
 from sklearn.cross_validation import train_test_split
 from pre_survey import *
+from sets import Set
 
 responseUserID = {}
 userScore = {}
@@ -20,6 +21,7 @@ screen_name_to_post_count = defaultdict(int)
 screen_name_to_comment_count = defaultdict(int)
 screen_name_activity_score = {}
 activity_name_set = []
+screen_name_to_continent = {}
 
 train_num = 20
 countThreshhold = 2
@@ -61,6 +63,26 @@ with open('../../data/survey_post_EarthSciences_ResGeo202_Spring2015_response.cs
         if (line[2] == "Q1.1" and line[4] != ''):
             if line[1] in responseUserID:
                 userScore[responseUserID[line[1]]] = int(line[4])
+
+# build nationality to continent mapping
+Asia = Set()
+Europe = Set()
+North_America = Set()
+South_America = Set()
+Africa = Set()
+Austrilia = Set()
+current_continent = -1
+continents = [Asia, North_America, South_America, Africa, Europe, Austrilia]
+with open('/Users/guorm/stanford/2016-spring/CS341/codes/countries_of_continent.txt', 'r') as csvfile :
+	lines = csv.reader(csvfile)
+	for line in lines :
+		if len(line) == 0 or line[0].startswith('#') or len(line[0]) == 1 :
+			continue
+		if line[0].startswith('$') :
+			current_continent += 1
+		else :
+			continents[current_continent].add(line[0])
+
 
 # extracting demographic feature
 first = True
@@ -116,7 +138,20 @@ with open('../../data/EarthSciences_ResGeo202_Spring2015_demographics.csv', 'r')
 			if line[0] not in screen_name_to_education and line[0] != "\\N":
 				screen_name_to_education[line[0]] = 0
 			
-
+			# nationality
+			screen_name_to_continent[line[0]] = [0] * 7
+			if ";" in line[5] :
+				if "Taiwan" in line[5] :
+					screen_name_to_continent[line[0]][0] = 1
+				else :
+					screen_name_to_continent[line[0]][6] = 1
+			else :
+				for i in range(6) :
+					if line[5] in continents[i] :
+						screen_name_to_continent[line[0]][i] = 1
+						break
+				if screen_name_to_continent[line[0]] == [0] * 7 :
+					screen_name_to_continent[line[0]][6] = 1
 
 # print len(screen_name_to_gender)
 # print len(screen_name_to_year_of_birth)

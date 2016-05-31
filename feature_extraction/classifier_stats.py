@@ -59,9 +59,22 @@ def classifier(train_num, use_profile=False):
 	print "logistic_classifier accuracy", metrics.accuracy_score(Y_test, bestLRclf.predict(X_test))
 	print "logistic_regression mean_squared_error", metrics.mean_squared_error(Y_test, bestLRclf.predict(X_test))
 
+	logProb = bestLRclf.predict_log_proba(X_test)
+	second_col = logProb[:,1]
+	sorted_index = np.argsort(second_col)
+
+	correct_count = 0
+	for i in range(1, 427):
+		index = sorted_index[-i]
+		if Y_test[index] == 1:
+			correct_count += 1
+	correct_percentage = correct_count / 426.0
+	print "correct_percentage", correct_percentage
+
 	return metrics.accuracy_score(Y_test, bestLRclf.predict(X_test))
+	# return correct_percentage
 
 if __name__ == "__main__":
-	train_num = 20
-	classifier(train_num, True)
+	train_num = 10
+	classifier(train_num, False)
 

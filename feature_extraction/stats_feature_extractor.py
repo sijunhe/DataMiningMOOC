@@ -268,7 +268,7 @@ def feature_extractor(train_num = 1, use_profile=False):
 				good_grade = 2
 			userGrade[user] = (grade, distinction, was_certified, good_grade)
 
-	print userGrade
+	# print userGrade
 
 	# print userVideoGrade
 
@@ -282,7 +282,7 @@ def feature_extractor(train_num = 1, use_profile=False):
 		videoFeatureTrainLen = train_num
 		# number of other features
 		widthOther = 0
-		width = widthOther + videoFeatureTrainLen * 4 + activityFeatureLen
+		width = widthOther + videoFeatureTrainLen * 2 + activityFeatureLen
 		# number of data
 		height = len(videoCountsClassification)
 		# height = len(userScore)
@@ -291,8 +291,9 @@ def feature_extractor(train_num = 1, use_profile=False):
 		Y = np.zeros(height)
 
 		i = 0
-		for id in userGrade:
-		# for id in videoCountsClassification:
+
+		# for id in userGrade:
+		for id in videoCountsClassification:
 		# for id in userScore:
 			# print id
 
@@ -310,36 +311,40 @@ def feature_extractor(train_num = 1, use_profile=False):
 			for j in range(widthOther, widthOther + videoFeatureTrainLen):
 				video = videoNames[j - widthOther]
 				X[i][j] = 0
-				if id in userVideoTime and video in userVideoTime[id]:
-					X[i][j] = userVideoMatrix[id][video]
-					if use_profile:
+
+				if use_profile:
+					if id in userVideoTime and video in userVideoTime[id]:
 						X[i][j] = userVideoTime[id][video]
+				else:
+					if id in userVideoMatrix and video in userVideoMatrix[id]:
+						X[i][j] = userVideoMatrix[id][video]
+				
+			if use_profile:
+				k = 0
+				for j in range(widthOther + videoFeatureTrainLen, widthOther + videoFeatureTrainLen * 2):
+					video = videoNames[k]
+					k += 1
+					X[i][j] = 0
+					if id in userVideoPeakPercentage and video in userVideoPeakPercentage[id]:
+						X[i][j] = userVideoPeakPercentage[id][video]
 
-			k = 0
-			for j in range(widthOther + videoFeatureTrainLen, widthOther + videoFeatureTrainLen * 2):
-				video = videoNames[k]
-				k += 1
-				X[i][j] = 0
-				if id in userVideoPeakPercentage and video in userVideoPeakPercentage[id]:
-					X[i][j] = userVideoPeakPercentage[id][video]
+			# k = 0
+			# for j in range(widthOther + videoFeatureTrainLen * 2, widthOther + videoFeatureTrainLen * 3):
+			# 	video = videoNames[k]
+			# 	k += 1
+			# 	X[i][j] = 0
+			# 	if id in userVideoGrade and video in userVideoGrade[id]:
+			# 		quizGradeStr = userVideoGrade[id][video][0]
+			# 		quizGrade = 0
+			# 		if quizGradeStr == "+":
+			# 			quizGrade = 1
+			# 		X[i][j] = quizGrade
 
-			k = 0
-			for j in range(widthOther + videoFeatureTrainLen * 2, widthOther + videoFeatureTrainLen * 3):
-				video = videoNames[k]
-				k += 1
-				X[i][j] = 0
-				if id in userVideoGrade and video in userVideoGrade[id]:
-					quizGradeStr = userVideoGrade[id][video][0]
-					quizGrade = 0
-					if quizGradeStr == "+":
-						quizGrade = 1
-					X[i][j] = quizGrade
-
-					quizGradeStr = userVideoGrade[id][video][1]
-					quizGrade = 0
-					if quizGradeStr == "+":
-						quizGrade = 1
-					X[i][j+videoFeatureTrainLen] = quizGrade
+			# 		quizGradeStr = userVideoGrade[id][video][1]
+			# 		quizGrade = 0
+			# 		if quizGradeStr == "+":
+			# 			quizGrade = 1
+			# 		X[i][j+videoFeatureTrainLen] = quizGrade
 
 			# for j in range(activityFeatureLen):
 			# 	video = activity_name_set[j]
@@ -349,8 +354,10 @@ def feature_extractor(train_num = 1, use_profile=False):
 			# X[i][0] = videoCountsClassification[id]
 			
 			# Y[i] = userScore[id]
-			# Y[i] = videoCountsClassification[id]
-			Y[i] = userGrade[id][3] 
+
+			Y[i] = videoCountsClassification[id]
+			# Y[i] = userGrade[id][2] 
+
 			i += 1
 
 	if predict_activity_grade:

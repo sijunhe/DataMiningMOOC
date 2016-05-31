@@ -1,0 +1,284 @@
+$Asia
+Afghanistan
+Armenia
+Azerbaijan
+Bahrain
+Bangladesh
+Bhutan
+Brunei
+Cambodia
+China
+Cyprus
+Georgia
+Hong Kong
+India
+Indonesia
+Iran
+Iraq
+Israel
+Japan
+Jordan
+Kazakhstan
+Kuwait
+Kyrgyzstan
+Laos
+Lebanon
+Malaysia
+Maldives
+Mongolia
+Myanmar 
+#(Burma)
+Nepal
+North Korea
+Oman
+Pakistan
+Palestine
+Philippines
+Qatar
+Russia
+Saudi Arabia
+Singapore
+South Korea
+Sri Lanka
+Syria
+Taiwan
+Tajikistan
+Thailand
+Timor-Leste
+Turkmenistan
+United Arab Emirates
+Uzbekistan
+Vietnam
+Yemen
+
+$North America
+A
+Antigua and Barbuda
+B
+Bahamas
+Barbados
+Belize
+C
+Canada
+Costa Rica
+Cuba
+D
+Dominica
+Dominican Republic
+E
+El Salvador
+G
+Grenada
+Guatemala
+H
+Haiti
+Honduras
+J
+Jamaica
+M
+Mexico
+N
+Nicaragua
+P
+Panama
+S
+St. Kitts and Nevis
+St. Lucia
+St. Vincent and The Grenadines
+T
+Trinidad and Tobago
+U
+United States
+
+$South America
+A
+Argentina
+B
+Bolivia
+Brazil
+C
+Chile
+Colombia
+E
+Ecuador
+G
+Guyana
+P
+Paraguay
+Peru
+S
+Suriname
+U
+Uruguay
+V
+Venezuela
+
+$Africa
+A
+Algeria
+Angola
+B
+Benin
+Botswana
+Burkina Faso
+Burundi
+C
+Cabo Verde
+Cameroon
+Central African Republic
+Chad
+Comoros
+Congo, Republic of the
+Congo, Democratic Republic of the
+Cote d'Ivoire
+D
+Djibouti
+E
+Egypt
+Equatorial Guinea
+Eritrea
+Ethiopia
+G
+Gabon
+Gambia
+Ghana
+Guinea
+Guinea-Bissau
+K
+Kenya
+L
+Lesotho
+Liberia
+Libya
+M
+Madagascar
+Malawi
+Mali
+Mauritania
+Mauritius
+Morocco
+Mozambique
+N
+Namibia
+Niger
+Nigeria
+R
+Rwanda
+S
+Sao Tome and Principe
+Senegal
+Seychelles
+Sierra Leone
+Somalia
+South Africa
+South Sudan
+Sudan
+Swaziland
+T
+Tanzania
+Togo
+Tunisia
+U
+Uganda
+Z
+Zambia
+Zimbabwe
+
+$Europe
+A
+Albania
+Andorra
+Armenia
+Austria
+Azerbaijan
+B
+Belarus
+Belgium
+Bosnia and Herzegovina
+Bulgaria
+C
+Croatia
+Cyprus
+Czech Republic
+D
+Denmark
+E
+Estonia
+F
+Finland
+France
+G
+Georgia
+Germany
+Greece
+H
+Hungary
+I
+Iceland
+Ireland
+Italy
+K
+Kazakhstan
+Kosovo
+L
+Latvia
+Liechtenstein
+Lithuania
+Luxembourg
+M
+Macedonia
+Malta
+Moldova
+Monaco
+Montenegro
+N
+Netherlands
+Norway
+P
+Poland
+Portugal
+R
+Romania
+Russia
+Russian Federation
+S
+San Marino
+Serbia
+Slovakia
+Slovenia
+Spain
+Sweden
+Switzerland
+T
+Turkey
+U
+Ukraine
+United Kingdom
+V
+Vatican City
+# (Holy See)
+
+$Australia
+A
+Australia
+F
+Fiji
+K
+Kiribati
+M
+Marshall Islands
+Micronesia
+N
+Nauru
+New Zealand
+P
+Palau
+Papua New Guinea
+S
+Samoa
+Solomon Islands
+T
+Tonga
+Tuvalu
+V
+Vanuatu
